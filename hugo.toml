@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-strscan.github.io/"
+title = "go-ruby-strscan"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Cursor model"
+  status = "ready"
+  blurb = "The byte cursor `pos` and the codepoint cursor `charpos`, the scanned/pre-match/post-match regions, and `reset` / `terminate` — the StringScanner state MRI exposes."
+[[params.phases]]
+  name = "Anchored scanning"
+  status = "ready"
+  blurb = "`scan`, `skip`, `match?` and `check` match a pattern **anchored at the cursor**; `scan` and `skip` advance, `match?` and `check` only report — exactly MRI's advance/no-advance split."
+[[params.phases]]
+  name = "Searching forward"
+  status = "ready"
+  blurb = "`scan_until`, `skip_until`, `check_until` and `exist?` search forward for the pattern, returning (and optionally consuming) everything up to and including the match, as MRI does."
+[[params.phases]]
+  name = "Peeking & getch"
+  status = "ready"
+  blurb = "`peek(n)` returns the next n bytes without advancing, `getch` consumes one (multibyte-aware) character, and `eos?` reports end-of-string."
+[[params.phases]]
+  name = "Captures & unscan"
+  status = "ready"
+  blurb = "After a match, `[]` and `captures` expose the regexp groups (`[0]` the whole match, named groups included), and `unscan` rolls the cursor back to before the last scan — matching MRI's semantics."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "A wide scan-sequence corpus run both here and by the system `ruby`, compared byte-for-byte; 100% coverage, gofmt + go vet clean, green across all six 64-bit Go arches and three OSes. Pattern matching is backed by go-ruby-regexp."
