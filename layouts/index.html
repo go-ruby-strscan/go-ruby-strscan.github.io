@@ -41,11 +41,9 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-ruby-strscan</h1>
-      <p class="sub">Ruby's <code>StringScanner</code> in pure Go — MRI-compatible, no cgo.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/docs/">{{ partial "icons/book.html" . }}Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/go-ruby-strscan/strscan">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
+      <p class="sub">Ruby's <code>StringScanner</code> in {{ if partial "mantra-on.html" . }}Go{{ else }}pure Go{{ end }} — MRI-compatible, {{ if not (partial "mantra-on.html" $) }}no cgo{{ end }}.</p>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
       <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">pure Go · zero cgo</span>{{ end }}<span class="pill">StringScanner</span><span class="pill">scan · scan_until</span><span class="pill">skip · match? · check</span><span class="pill">peek · getch</span><span class="pill">pos · charpos</span><span class="pill">captures · []</span><span class="pill">unscan</span><span class="pill">go-ruby-regexp backed</span><span class="pill">MRI byte-exact</span><span class="pill">100% coverage</span><span class="pill">6 arches</span></div>
       <div class="legacy"><div class="badges">
       <a href="/docs/"><img alt="Documentation (MkDocs Material + mike)" src="https://img.shields.io/badge/docs-mkdocs--material-9B1C2E"></a>
